@@ -114,13 +114,13 @@
         </nav>
         <!-- Navbar -->
         @yield('carousel')
-        {{-- Incluye menus emergentes --}}
-        @include('layouts.flash-message')
     </header>
     <!--Main Navigation-->
     <!--Main layout-->
     <main class="mt-5">
         <div class="container">
+            {{-- Incluye menus emergentes --}}
+            @include('layouts.flash-message')
             @yield('contenido')
         </div>
     </main>
@@ -172,12 +172,14 @@
     <!--Footer-->
     <!-- MDB -->
     <script type="text/javascript" src="{{ asset('js/mdb.min.js') }}"></script>
+    <!--Incluir jQuery  -->
+    <script src="{{ asset('jQuery/jquery-3.6.0.min.js') }}"></script>
 
     <script>
-            //Cierra los mensajes emergentes
-            $(document).ready(function(event){
-                $('.mdshide').delay(3000).fadeOut(300);
-            })
+        //Cierra los mensajes emergentes
+        $(document).ready(function(event){
+            $('.mdshide').delay(3000).fadeOut(300);
+        })
     </script>
 
     @yield('js')
