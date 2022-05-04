@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Alert;
 
 class ContactsController extends Controller
 {
@@ -43,7 +44,9 @@ class ContactsController extends Controller
        $contact->coment=$request->coment;
        $contact->save();
 
-       return View('welcome')->with('success','En breve nos pondremos en contacto con usted, gracias por su confianza en KSE_Developers');
+       Alert::success('Gracias', 'En breve nos pondremos en contacto con usted, gracias por su confianza en KSE_Developers');
+
+       return View('welcome');
     }
 
     /**

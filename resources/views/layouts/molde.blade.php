@@ -14,6 +14,41 @@
     <link rel="stylesheet" href="{{ asset('css/mdb.min.css') }} " />
     {{-- Token de autenticación laravel --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    {{-- Recaptcha --}}
+    <script type="text/javascript">
+
+        function callbackThen(response){
+
+        // read HTTP status
+
+        console.log(response.status);
+
+        // read Promise object
+
+        response.json().then(function(data){
+
+        console.log(data);
+
+        });
+
+        }
+
+        function callbackCatch(error){
+
+        console.error('Error:', error)
+
+        }
+
+        </script>
+
+        {!! htmlScriptTagJsApi([
+
+        'callback_then' => 'callbackThen',
+
+        'callback_catch' => 'callbackCatch'
+
+        ]) !!}
 </head>
 <body>
     <!--Main Navigation-->
@@ -72,7 +107,7 @@
     <main class="mt-5">
         <div class="container">
             {{-- Incluye menus emergentes --}}
-            @include('layouts.flash-message')
+            @include('sweetalert::alert')
             @yield('contenido')
         </div>
     </main>
@@ -127,13 +162,7 @@
     <!--Incluir jQuery  -->
     <script src="{{ asset('jQuery/jquery-3.6.0.min.js') }}"></script>
 
-    <script>
-        //Cierra los mensajes emergentes
-        $(document).ready(function(event){
-            $('.mdshide').delay(3000).fadeOut(300);
-        })
-    </script>
-
+    {{-- Sección de scripts individuales --}}
     @yield('js')
 
 </body>
