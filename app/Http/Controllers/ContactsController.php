@@ -40,6 +40,7 @@ class ContactsController extends Controller
        $contact->lastName=$request->lastName;
        $contact->email=$request->email;
        $contact->phone=$request->phone;
+       $contact->coment=$request->coment;
        $contact->save();
 
        return View('welcome')->with('success','En breve nos pondremos en contacto con usted, gracias por su confianza en KSE_Developers');

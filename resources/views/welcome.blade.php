@@ -144,6 +144,12 @@
                         <label class="form-label" for="phone">Phone number</label>
                     </div>
 
+                   <!--Material textarea-->
+                    <div class="form-outline mb-4">
+                        <textarea id="coment" name="coment" class="md-textarea form-control" rows="3"></textarea>
+                        <label for="coment" class="form-label">Comentarios</label>
+                    </div>
+
                     <!-- Submit button -->
                     <button type="submit" class="btn btn-primary btn-block mb-4">
                     Enviar
