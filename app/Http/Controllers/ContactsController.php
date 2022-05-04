@@ -46,7 +46,7 @@ class ContactsController extends Controller
 
        Alert::success('Gracias', 'En breve nos pondremos en contacto con usted, gracias por su confianza en KSE_Developers');
 
-       return View('welcome');
+       return redirect()->route('inicio');
     }
 
     /**

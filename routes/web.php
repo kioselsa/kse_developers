@@ -16,7 +16,7 @@ use App\Http\Controllers\ContactsController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('inicio');
 
 //Rutas para contacto
 Route::get('contact/store',[ContactsController::class, 'store'])->name('contact.store');
