@@ -11,9 +11,9 @@
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
     <!-- MDB -->
-    <link rel="stylesheet" href="css/mdb.min.css" />
+    <link rel="stylesheet" href="{{ asset('css/mdb.min.css') }}" />
     <!-- Custom styles -->
-    <link rel="stylesheet" href="css/admin.css" />
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
         crossorigin="anonymous"></script>
 </head>
@@ -32,8 +32,8 @@
             </button>
     
             <!-- Brand -->
-            <a class="navbar-brand" href="#">
-                <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="25" alt="" loading="lazy" />
+            <a class="navbar-brand" href="{{ route('inicio') }}">
+                <img src="{{ asset('img/kse.png') }}" height="35" alt="Logo KSE Developers" loading="lazy" />
             </a>       
     
             <!-- Right links -->
@@ -58,7 +58,7 @@
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#"
                     id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img (3).jpg" class="rounded-circle" height="22"
+                    <img src="{{ asset('img/user.png') }}" class="rounded-circle" height="22"
                     alt="" loading="lazy" />
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
@@ -83,10 +83,10 @@
                 <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white" style="margin-top: 58px">
                     <div class="position-sticky">
                         <div class="list-group list-group-flush mx-3 mt-4">
-                            <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
-                            <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
+                            <a href="{{ route('dashboard') }}" class="list-group-item list-group-item-action py-2 ripple active" aria-current="true">
+                            <i class="fas fa-tachometer-alt fa-fw me-3 "></i><span>Main dashboard</span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action py-2 ripple active">
+                            <a href="#" class="list-group-item list-group-item-action py-2 ripple">
                             <i class="fas fa-chart-area fa-fw me-3"></i><span>Webiste traffic </span>
                             </a>
                             <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
@@ -96,8 +96,8 @@
                             <a href="#" class="list-group-item list-group-item-action py-2 ripple">
                             <i class="fas fa-chart-pie fa-fw me-3"></i><span>SEO</span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                                class="fas fa-chart-bar fa-fw me-3"></i><span>Orders</span></a>
+                            <a href="{{ route('admin.contact') }}" class="list-group-item list-group-item-action py-2 ripple"><i
+                                class="fas fa-chart-bar fa-fw me-3"></i><span>Contacto</span></a>
                             <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
                                 class="fas fa-globe fa-fw me-3"></i><span>International</span></a>
                             <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
@@ -116,7 +116,8 @@
             <div class="col-md-9">
                 <!--Main layout-->
                 <main style="margin-top: 70px">
-                    <h3>Hola mundo</h3>
+                    <h5>@yield('ruta')</h5>
+                    @yield('content')
                 </main>
                 <!--Main layout-->
             </div>
@@ -124,9 +125,7 @@
     </header>
     <!--Main Navigation-->  
     <!-- MDB -->
-    <script type="text/javascript" src="js/mdb.min.js"></script>
-    <!-- Custom scripts -->
-    <script type="text/javascript" src="js/admin.js"></script>
+    <script type="text/javascript" src="{{ asset('js/mdb.min.js') }}"></script>   
 </body>
 
 </html>

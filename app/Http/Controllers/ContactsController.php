@@ -15,7 +15,9 @@ class ContactsController extends Controller
      */
     public function index()
     {
-        //
+        $contactos=Contact::all();
+        return view('admin.contacto')
+        ->with('contactos',$contactos);
     }
 
     /**

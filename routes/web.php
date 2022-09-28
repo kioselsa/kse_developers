@@ -19,9 +19,19 @@ Route::get('/', function () {
     return view('welcome');
 })->name('inicio');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+/*Route::get('/dashboard', function () {
+    return view('admin.home');
+})->middleware(['auth'])->name('dashboard');*/
+
+//Protección de rutas
+Route::group(['middleware' => 'auth'],function()
+{
+    //Rutas del panel de administración
+    Route::get('/dashboard', function () {
+        return view('admin.home');
+    })->name('dashboard');
+    Route::get('admin/contact',[ContactsController::class, 'index'])->name('admin.contact');
+});
 
 //Rutas para contacto
 Route::get('contact/store',[ContactsController::class, 'store'])->name('contact.store');
