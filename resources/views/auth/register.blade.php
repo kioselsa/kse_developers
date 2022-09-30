@@ -1,59 +1,53 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('layouts.molDashboard')
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+@section('ruta')
+    <a href="{{ route('dashboard') }}">Dashboard</a>/Usuarios
+@endsection
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
+@section('content')
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <!-- Card -->
+            <div class="card">
 
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
-
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                <!-- Card image -->
+                <div class="view overlay">
+                <img class="card-img-top" src="{{ asset('img/userRegister.jpg') }}"
+                    alt="Card image cap">               
+                </div>
+            
+                <!-- Card content -->
+                <div class="card-body">
+                    <form method="POST" action="{{ route('save') }}">
+                        @csrf
+                        <!-- Title -->
+                        <h4 class="card-title">Crear usuario</h4>
+                        <!-- Cajas de texto -->
+                        <div class="form-outline mb-4">
+                            <input type="text" id="name" class="form-control" name="name" required autofocus value="{{ old('name') }}"/>
+                            <label class="form-label" for="name">Nombre</label>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <input type="email" id="email" class="form-control" name="email" required value="{{ old('email') }}"/>
+                            <label class="form-label" for="email">Correo electrónico</label>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <input type="password" id="password" class="form-control" name="password" required/>
+                            <label class="form-label" for="password">Password</label>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <input type="password" id="confPassword" class="form-control" name="confPassword" required/>
+                            <label class="form-label" for="confPassword">Password</label>
+                        </div>
+                        <!-- Button -->
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </form> 
+                </div>            
             </div>
-
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
-            </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
-            </div>
-
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+            <!-- Card -->
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+   
+@endsection

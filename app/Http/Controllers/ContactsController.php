@@ -16,7 +16,7 @@ class ContactsController extends Controller
     public function index()
     {
         $contactos=Contact::all();
-        return view('admin.mensajes.contacto')
+        return view('admin.mesages.contact')
         ->with('contactos',$contactos);
     }
 
@@ -60,7 +60,7 @@ class ContactsController extends Controller
     public function show($id)
     {
         $mesage=Contact::find($id);
-        return view('admin.mensajes.verMensaje')
+        return view('admin.mesages.viewMesages')
         ->with('mesage',$mesage);
     }
 
@@ -93,8 +93,10 @@ class ContactsController extends Controller
      * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contact $contact)
+    public function destroy($id)
     {
-        //
+        Contact::destroy($id);
+        Alert::error('Borrado', 'El mensaje se elimino correctamente!');
+        return redirect()->route('admin.contact');
     }
 }

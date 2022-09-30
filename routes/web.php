@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\UsersController;
 
 
 /*
@@ -32,6 +33,10 @@ Route::group(['middleware' => 'auth'],function()
     })->name('dashboard');
     Route::get('admin/contact',[ContactsController::class, 'index'])->name('admin.contact');
     Route::get('admin/contact/mensage/{id}',[ContactsController::class, 'show'])->name('admin.contact.mensage');
+    Route::get('admin/contact/destroy/{id}',[ContactsController::class, 'destroy'])->name('admin.contact.destroy');
+
+    //Rutas para usuarios
+    Route::get('admin/usuarios',[UsersController::class, 'index'])->name('admin.usuarios');
 });
 
 //Rutas para contacto

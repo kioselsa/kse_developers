@@ -22,7 +22,10 @@
                     <td>{{ $cont->name }} {{ $cont->lastName }}</td>
                     <td>{{ $cont->email }}</td>
                     <td>{{ $cont->phone }}</td>
-                    <td><a title="Ver mensaje" type="button" href="{{ route('admin.contact.mensage',$cont->id) }}" class="btn btn-success"><i class="far fa-eye" ></i></a></td>
+                    <td>
+                        <a title="Ver mensaje" type="button" href="{{ route('admin.contact.mensage',$cont->id) }}" class="btn btn-success btn-sm"><i class="far fa-eye fa-sm" ></i></a>
+                        <a title="Eliminar mensaje" type="button" href="{{ route('admin.contact.destroy',$cont->id) }}" class="btn btn-danger btn-sm"><i class="far fa-trash-alt fa-sm"></i></a>
+                    </td>
                 </tr>
             @endforeach                       
         </tbody>

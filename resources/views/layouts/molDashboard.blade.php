@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ asset('css/mdb.min.css') }}" />
     <!-- Custom styles -->
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}" />
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
         crossorigin="anonymous"></script>
 </head>
@@ -104,7 +105,7 @@
                                 class="fas fa-building fa-fw me-3"></i><span>Partners</span></a>
                             <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
                                 class="fas fa-calendar fa-fw me-3"></i><span>Calendar</span></a>
-                            <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                            <a href="{{ route('admin.usuarios') }}" class="list-group-item list-group-item-action py-2 ripple"><i
                                 class="fas fa-users fa-fw me-3"></i><span>Users</span></a>
                             <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
                                 class="fas fa-money-bill fa-fw me-3"></i><span>Sales</span></a>
@@ -113,14 +114,17 @@
                 </nav>
                 <!-- Sidebar -->
             </div>
-            <div class="col-md-9">
+            <div class="col-md-9">     
                 <!--Main layout-->
-                <main style="margin-top: 70px">
+                <main role="main" style="margin-top: 70px">
                     <h4>@yield('ruta')</h4>
                     <hr>
-                    @yield('content')
+                    @include('sweetalert::alert')
+                    <div class="container">
+                        @yield('content')
+                    </div> 
                 </main>
-                <!--Main layout-->
+                <!--Main layout-->                              
             </div>
         </div>   
     </header>
