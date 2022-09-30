@@ -31,6 +31,7 @@ Route::group(['middleware' => 'auth'],function()
         return view('admin.home');
     })->name('dashboard');
     Route::get('admin/contact',[ContactsController::class, 'index'])->name('admin.contact');
+    Route::get('admin/contact/mensage/{id}',[ContactsController::class, 'show'])->name('admin.contact.mensage');
 });
 
 //Rutas para contacto

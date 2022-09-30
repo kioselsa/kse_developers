@@ -116,7 +116,8 @@
             <div class="col-md-9">
                 <!--Main layout-->
                 <main style="margin-top: 70px">
-                    <h5>@yield('ruta')</h5>
+                    <h4>@yield('ruta')</h4>
+                    <hr>
                     @yield('content')
                 </main>
                 <!--Main layout-->

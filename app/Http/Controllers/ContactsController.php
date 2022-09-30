@@ -16,7 +16,7 @@ class ContactsController extends Controller
     public function index()
     {
         $contactos=Contact::all();
-        return view('admin.contacto')
+        return view('admin.mensajes.contacto')
         ->with('contactos',$contactos);
     }
 
@@ -57,9 +57,11 @@ class ContactsController extends Controller
      * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function show(Contact $contact)
+    public function show($id)
     {
-        //
+        $mesage=Contact::find($id);
+        return view('admin.mensajes.verMensaje')
+        ->with('mesage',$mesage);
     }
 
     /**
