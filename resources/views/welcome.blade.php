@@ -151,9 +151,10 @@
                     </div>
 
                     <!-- Submit button -->
-                    <button type="submit" class="btn btn-primary btn-block mb-4">
-                    Enviar
-                    </button>
+                    <button class="g-recaptcha btn btn-secondary" 
+                        data-sitekey="6Ldx2eYlAAAAAOVwWglvm71i6dc6HCU8qQguzW1O" 
+                        data-callback='onSubmit' 
+                        data-action='submit'>Enviar</button>
                 </form>
             </div>
         </div>

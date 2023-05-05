@@ -16,6 +16,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- Recaptcha --}}
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <script type="text/javascript">
 
         function callbackThen(response){
@@ -164,6 +165,11 @@
 
     {{-- Sección de scripts individuales --}}
     @yield('js')
+    <script>
+        function onSubmit(token) {
+          document.getElementById("demo-form").submit();
+        }
+      </script>
 
 </body>
 </html>
