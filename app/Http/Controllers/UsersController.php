@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Alert;
 
 class UsersController extends Controller
 {
@@ -19,69 +21,33 @@ class UsersController extends Controller
         ->with('users',$users);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function myProfile()
+    {   
+        $user=User::find(auth()->id());     
+        return view('admin.users.myProfile')->with('user',$user);        
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    public function myProfileUpdate(Request $request)
+    {   
+        $nombre_ya_existe = User::where([
+            ['name','=',$request->name],
+            ['id','<>',$request->id]
+        ])->get()->count()>0?true: false;
+        if($nombre_ya_existe)
+        {
+            Alert::error('Error','El nombre de usuarios y/o email ya esta(n) siendo utilizado(s)');
+            return redirect()->route('usuarios.myprofile');
+        }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function show(User $user)
-    {
-        //
-    }
+        User::where('id', $request->id)
+            ->update(
+            [
+                'name' =>$request->name,
+                'email'=>$request->email,
+                'password'=>Hash::make($request->password)              
+            ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(User $user)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, User $user)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(User $user)
-    {
-        //
+        Alert::success('Correcto','El usuario se modifico correctamente');
+        return redirect()->route('usuarios.myprofile');       
     }
 }
