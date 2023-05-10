@@ -39,6 +39,7 @@ Route::group(['middleware' => 'auth'],function()
     Route::get('admin/usuarios',[UsersController::class, 'index'])->name('admin.usuarios');
     Route::get('admin/usuarios/myprofile',[UsersController::class, 'myProfile'])->name('usuarios.myprofile');
     Route::post('usuarios/myprofile/update',[UsersController::class, 'myProfileUpdate'])->name('usuarios.myprofile.update');
+
 });
 
 //Rutas para contacto

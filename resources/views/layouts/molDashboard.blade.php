@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{ asset('css/mdb.min.css') }}" />
     <!-- Custom styles -->
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}" />
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
         crossorigin="anonymous"></script>
 </head>
@@ -31,12 +31,12 @@
                 aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
-    
+
             <!-- Brand -->
             <a class="navbar-brand" href="{{ route('inicio') }}">
                 <img src="{{ asset('img/kse.png') }}" height="35" alt="Logo KSE Developers" loading="lazy" />
-            </a>       
-    
+            </a>
+
             <!-- Right links -->
             <ul class="navbar-nav ms-auto d-flex flex-row">
                 <!-- Notification dropdown -->
@@ -53,8 +53,8 @@
                         <a class="dropdown-item" href="#">Something else</a>
                     </li>
                 </ul>
-                </li>                 
-    
+                </li>
+
                 <!-- Avatar -->
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#"
@@ -77,7 +77,7 @@
             <!-- Container wrapper -->
         </nav>
         <!-- Navbar -->
-        {{-- Codigo de la pagina --}}    
+        {{-- Codigo de la pagina --}}
         <div class="row">
             <div class="col-md-3">
                 <!-- Sidebar -->
@@ -92,7 +92,7 @@
                             </a>
                             <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
                                 class="fas fa-lock fa-fw me-3"></i><span>Password</span></a>
-                            <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                            <a href="https://analytics.google.com/analytics/web/#/p280980714/reports/intelligenthome" target="_blanck" class="list-group-item list-group-item-action py-2 ripple"><i
                                 class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a>
                             <a href="#" class="list-group-item list-group-item-action py-2 ripple">
                             <i class="fas fa-chart-pie fa-fw me-3"></i><span>SEO</span>
@@ -114,7 +114,7 @@
                 </nav>
                 <!-- Sidebar -->
             </div>
-            <div class="col-md-9">     
+            <div class="col-md-9">
                 <!--Main layout-->
                 <main role="main" style="margin-top: 70px">
                     <h4>@yield('ruta')</h4>
@@ -122,15 +122,15 @@
                     @include('sweetalert::alert')
                     <div class="container">
                         @yield('content')
-                    </div> 
+                    </div>
                 </main>
-                <!--Main layout-->                              
+                <!--Main layout-->
             </div>
-        </div>   
+        </div>
     </header>
-    <!--Main Navigation-->  
+    <!--Main Navigation-->
     <!-- MDB -->
-    <script type="text/javascript" src="{{ asset('js/mdb.min.js') }}"></script>   
+    <script type="text/javascript" src="{{ asset('js/mdb.min.js') }}"></script>
 </body>
 
 </html>
